@@ -1,0 +1,17 @@
+<div @todosWrapper>
+  <h1>Todos</h1>
+  <input kendoTextBox #itemInput (keyup.enter)="addTodo(itemInput)"
+    placeholder="Add a todo item" />
+
+  <div  *ngIf="todos" class="list-group" >
+     <div *ngFor="let todo of todos; index as i" style="float:left;width:100%;"> 
+       <p style="float:left;width:5%;border:redsolid" kendoButton type="button" class="todo" @todoItem
+       (click)="removeTodo(todo, i)">
+     delete
+  </p>
+    <p style="float:left;width:90%;border:redsolid" kendoButton type="button" class="todo" @todoItem
+      >
+      {{todo}}
+  </p></div>
+  </div>   
+</div>
